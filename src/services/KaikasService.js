@@ -2,7 +2,9 @@ export default class KaikasService{
     static async connect(){
         const klaytn = window.klaytn
         const isUnlocked = await klaytn.publicConfigStore.getState().isUnlocked
-        const address = klaytn.selectedAddress
+
+        const accounts = await klaytn.enable()
+        const address = accounts[0]
         const network = klaytn.networkVersion
 
         if(!klaytn || !isUnlocked){
