@@ -1,10 +1,9 @@
 import { selector } from "recoil";
 import { kaikasAtom } from "./atom";
 
-const kaiaksSelector = selector({
+export const kaiaksSelector = selector({
   key: "kaikasAtom",
-  get: () => {
-    return kaikasAtom.value;
+  get: ({ get }) => {
+    return get(kaikasAtom);
   },
-  set: async ({ get, set }) => {},
 });

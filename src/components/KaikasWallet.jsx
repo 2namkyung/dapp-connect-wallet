@@ -14,12 +14,15 @@ export default function KaikasWallet() {
       const kasState = await KaikasService.connect();
       setKaikas(kasState);
     })();
-  }, [setKaikas]);
+  }, [kaikas, setKaikas]);
 
   const click = async () => {
     if (!kaikas.isUnlocked) {
       await window.klaytn.enable();
     }
+
+    const kasState = await KaikasService.connect();
+    setKaikas(kasState);
   };
 
   return (
